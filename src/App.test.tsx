@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
@@ -14,4 +14,12 @@ describe('App', () => {
 
     expect(container.querySelector('#calculator-body')).toBeInTheDocument();
   });
+
+  it('renders a ResultsWindow within the calculator body', () => {
+    const {container} = render(<App/>);
+
+    // container.getElementsByTagName('p')[0]
+    const calculatorBody = container.querySelector('#calculator-body') as HTMLElement;
+    expect(calculatorBody.getElementsByTagName('p')[0]).toBeInTheDocument();
+  })
 });

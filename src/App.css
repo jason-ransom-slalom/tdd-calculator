@@ -16,4 +16,14 @@
     width: 25%;
     height: 50%;
     border-radius: 2px;
+    display: flex;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.results-window {
+    background-color: #C6FEB2;
+    width: 80%;
+    height: 2em;
 }
