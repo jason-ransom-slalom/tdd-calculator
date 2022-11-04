@@ -11,19 +11,22 @@
     align-items: center;
 }
 
-.frame {
-     background-color: black;
+.calculator {
+    background-color: black;
     width: 25%;
+    min-width: 192px;
+    max-width: 336px;
     height: 50%;
-    border-radius: 2px;
+    border-radius: 4px;
     display: flex;
     padding: 1em;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .results-window {
     background-color: #C6FEB2;
     width: 80%;
-    height: 2em;
+    height: 48px;
+    border-radius: 4px;
 }
