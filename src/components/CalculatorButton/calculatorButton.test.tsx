@@ -12,40 +12,44 @@ describe('CalculatorButton displays the provided value of 1', () => {
         expect(container).toBeInTheDocument();
     });
 
-    it('displays the provided value of 2', () => {
+    it('displays the provided value of  2', () => {
+        const value = 2;
         const { getByText } = render(
             <CalculatorButton value={2} clickCalculatorButton={onClick}/>
         );
 
-        getByText(2);
+        getByText(value);
     });
 
     it('displays the provided value of +', () => {
+        const value = '+';
         const { getByText } = render(
             <CalculatorButton value={'+'} clickCalculatorButton={onClick}/>
         );
 
-        getByText('+');
-    });
-
-    it('displays the provided value of +', () => {
-        const { getByText } = render(
-            <CalculatorButton value={'+'} clickCalculatorButton={onClick}/>
-        );
-
-        getByText('+');
+        getByText(value);
     });
 
     it('execute the onclick function when clicked', () => {
 
+        const value = '+';
         const { getByText } = render(
             <CalculatorButton value={'+'} clickCalculatorButton={onClick}/>
         );
 
-        const elem = getByText('+');
+        const elem = getByText(value);
         fireEvent.click(elem);
         expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    it.todo('calls the onClick with the provided value');
+    it('calls the onClick with the provided value', () => {
+        const value = '+';
+        const { getByText } = render(
+            <CalculatorButton value={value} clickCalculatorButton={onClick}/>
+        );
+
+        const elem = getByText('+');
+        fireEvent.click(elem);
+        expect(onClick).toHaveBeenCalledWith(value);
+    });
 });
