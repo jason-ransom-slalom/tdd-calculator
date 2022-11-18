@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ResultsWindow from './components/ResultsWindow/ResultsWindow';
 import CalculatorButton from "./components/CalculatorButton/CalculatorButton";
+import {BUTTON_VALUE_LIST} from "./app.constants";
 
 function App() {
 
@@ -9,13 +10,19 @@ function App() {
 
     }
 
+    const returnCalculatorButton = () =>
+        BUTTON_VALUE_LIST.map(buttonValue =>
+            <CalculatorButton value={buttonValue} clickCalculatorButton={clickCalculatorButton}/>
+        );
+
     return (
         <div id='calculator-background' className='background'>
             <div id='calculator-body' className='calculator'>
-                <ResultsWindow />
+                <ResultsWindow/>
                 <div id='button-body'>
-                    <CalculatorButton value={1} clickCalculatorButton={clickCalculatorButton}/>
-                    <CalculatorButton value={2} clickCalculatorButton={clickCalculatorButton}/>
+                    {
+                        returnCalculatorButton()
+                    }
                 </div>
             </div>
         </div>
