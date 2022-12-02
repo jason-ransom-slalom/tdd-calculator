@@ -10,7 +10,7 @@ function App() {
 
     }
 
-    const returnCalculatorButton = () =>
+    const renderCalculatorButtons = () =>
         BUTTON_VALUE_LIST.map(buttonValue =>
             <CalculatorButton value={buttonValue} clickCalculatorButton={clickCalculatorButton}/>
         );
@@ -18,10 +18,10 @@ function App() {
     return (
         <div id='calculator-background' className='background'>
             <div id='calculator-body' className='calculator'>
-                <ResultsWindow/>
+                <ResultsWindow value={12}/>
                 <div id='button-body'>
                     {
-                        returnCalculatorButton()
+                        renderCalculatorButtons()
                     }
                 </div>
             </div>
