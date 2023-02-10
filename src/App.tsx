@@ -1,28 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import ResultsWindow from './components/ResultsWindow/ResultsWindow';
 import CalculatorButton from "./components/CalculatorButton/CalculatorButton";
 import {BUTTON_VALUE_LIST} from "./app.constants";
 
 function App() {
+    const [renderValue, setRenderValue] = useState<string>('0');
 
-    const clickCalculatorButton = () => {
-
+    const clickCalculatorButton = (value: string) => {
+        setRenderValue(value);
     }
 
     const renderCalculatorButtons = () =>
-        BUTTON_VALUE_LIST.map(buttonValue =>
-            <CalculatorButton value={buttonValue} clickCalculatorButton={clickCalculatorButton}/>
+        BUTTON_VALUE_LIST.map((buttonValue, idx) =>
+            <CalculatorButton key={`${idx}-${buttonValue}`} value={buttonValue}
+                              clickCalculatorButton={clickCalculatorButton}/>
         );
 
     return (
         <div id='calculator-background' className='background'>
             <div id='calculator-body' className='calculator'>
-                <ResultsWindow value={12}/>
+                <ResultsWindow value={renderValue}/>
                 <div id='button-body'>
-                    {
-                        renderCalculatorButtons()
-                    }
+                    {renderCalculatorButtons()}
                 </div>
             </div>
         </div>

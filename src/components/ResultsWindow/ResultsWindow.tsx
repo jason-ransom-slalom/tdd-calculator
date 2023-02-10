@@ -5,7 +5,7 @@ interface ResultsWindowProps {
 }
 
 const ResultsWindow: FC<ResultsWindowProps> = ({value}) => {
-    return <p id='resultsWindow' role='resultsWindow' className='results-window'> {value} </p>;
+    return <p id='resultsWindow' role='resultsWindow' className='results-window'>{value}</p>;
 }
 
 export default ResultsWindow;
