@@ -5,24 +5,33 @@ import {BUTTON_VALUE_LIST} from "./app.constants";
 import resultsWindow from "./components/ResultsWindow/ResultsWindow";
 
 describe('App', () => {
-    it('renders the calculator background', () => {
-        const {container} = render(<App/>);
+    describe('rendering', () => {
+        it('renders the calculator background', () => {
+            const {container} = render(<App/>);
 
-        expect(container.querySelector('#calculator-background')).toBeInTheDocument();
-    });
+            expect(container.querySelector('#calculator-background')).toBeInTheDocument();
+        });
 
-    it('renders a calculator frame', () => {
-        const {container} = render(<App/>);
+        it('renders a calculator frame', () => {
+            const {container} = render(<App/>);
 
-        expect(container.querySelector('#calculator-body')).toBeInTheDocument();
-    });
+            expect(container.querySelector('#calculator-body')).toBeInTheDocument();
+        });
 
-    it('renders a ResultsWindow within the calculator body', () => {
-        const {container} = render(<App/>);
+        it('renders a ResultsWindow within the calculator body', () => {
+            const {container} = render(<App/>);
 
-        // container.getElementsByTagName('p')[0]
-        const calculatorBody = container.querySelector('#calculator-body') as HTMLElement;
-        expect(calculatorBody.getElementsByTagName('p')[0]).toBeInTheDocument();
+            // container.getElementsByTagName('p')[0]
+            const calculatorBody = container.querySelector('#calculator-body') as HTMLElement;
+            expect(calculatorBody.getElementsByTagName('p')[0]).toBeInTheDocument();
+        });
+
+        it('renders 0 in the ResultsWindow by default', () => {
+            const {getByRole} = render(<App/>);
+
+            const resultsWindow = getByRole('resultsWindow');
+            expect(resultsWindow.innerHTML).toBe('0');
+        });
     });
 
     describe('calculator frame', () => {
