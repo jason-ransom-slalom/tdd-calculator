@@ -52,12 +52,24 @@ describe('App', () => {
         });
     });
 
-    it('adds a value to results window when a number button is clicked', () => {
-        const {getByText, getByRole} = render(<App/>);
-        const numberOneButton = getByText('1');
-        fireEvent.click(numberOneButton);
+    describe('calculator input', () => {
+        it('adds a value to results window when a number button is clicked', () => {
+            const {getByText, getByRole} = render(<App/>);
+            const numberOneButton = getByText('1');
+            fireEvent.click(numberOneButton);
 
-        const resultsWindow = getByRole('resultsWindow');
-        expect(resultsWindow.innerHTML).toBe('1');
-    })
+            const resultsWindow = getByRole('resultsWindow');
+            expect(resultsWindow.innerHTML).toBe('1');
+        });
+
+        it('combines input on multiple number key clicks', () => {
+            const {getByText, getByRole} = render(<App/>);
+            const numberOneButton = getByText('1');
+            fireEvent.click(numberOneButton);
+            fireEvent.click(numberOneButton);
+
+            const resultsWindow = getByRole('resultsWindow');
+            expect(resultsWindow.innerHTML).toBe('11');
+        });
+    });
 });

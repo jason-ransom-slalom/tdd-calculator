@@ -5,10 +5,10 @@ import CalculatorButton from "./components/CalculatorButton/CalculatorButton";
 import {BUTTON_VALUE_LIST} from "./app.constants";
 
 function App() {
-    const [renderValue, setRenderValue] = useState<string>('0');
+    const [renderValue, setRenderValue] = useState<string>('');
 
     const clickCalculatorButton = (value: string) => {
-        setRenderValue(value);
+        setRenderValue(renderValue + value);
     }
 
     const renderCalculatorButtons = () =>
