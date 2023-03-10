@@ -24,9 +24,15 @@ function App() {
     return (
         <div id='calculator-background' className='background'>
             <div id='calculator-body' className='calculator'>
-                <ResultsWindow value={renderValue}/>
-                <div id='button-body'>
-                    {renderCalculatorButtons()}
+                <div className='content-body'>
+                    <div className='top-content'>
+                        <ResultsWindow value={renderValue}/>
+                    </div>
+                    <div className='bottom-content'>
+                        <div id='button-body'>
+                            {renderCalculatorButtons()}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
